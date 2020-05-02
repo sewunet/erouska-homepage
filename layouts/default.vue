@@ -9,13 +9,18 @@
                         </nuxt-link>
                     </h1>
                 </div>
-                <nav v-if="!isHome" class="header__nav-wrapper d-none d-md-block"
+                <nav class="header__nav-wrapper d-none d-md-block"
                      role="navigation">
                     <ul class="header__nav">
-                        <li>
+                        <li v-if="!isHome">
                             <nuxt-link :to="homeUrlNoTrailingSlash">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6.703" height="11.252" viewDownloadBox="0 0 6.703 11.252"><path d="M.148-7.049a.422.422,0,0,0,0,.6l5.161,5.2a.422.422,0,0,0,.6,0l.7-.7a.422.422,0,0,0,0-.6L2.436-6.75,6.6-10.958a.422.422,0,0,0,0-.6l-.7-.7a.422.422,0,0,0-.6,0Z" transform="translate(-0.024 12.376)" fill="#222"/></svg>
                                 <span>{{ $t('web.default.back_to_main_page') }}</span>
+                            </nuxt-link>
+                        </li>
+                        <li v-for="lang in locales">
+                            <nuxt-link :to="'/'">
+                                <span>{{ localeCaptions[lang] || lang }}</span>
                             </nuxt-link>
                         </li>
                     </ul>
@@ -92,7 +97,9 @@
     export default {
         data() {
             return {
-                baseUrl: process.env.baseUrl
+                baseUrl: process.env.baseUrl,
+                locales: process.env.locales,
+                localeCaptions: process.env.localeCaptions
             }
         },
         head() {
