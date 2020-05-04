@@ -18,10 +18,9 @@
                                 <span>{{ $t('web.default.back_to_main_page') }}</span>
                             </nuxt-link>
                         </li>
-                        <li v-for="lang in locales">
-                            <nuxt-link :to="'/'">
-                                <span>{{ localeCaptions[lang] || lang }}</span>
-                            </nuxt-link>
+                        <li v-for="(lang, key) in locales" v-if="lang != $i18n.locale" class="header__nav__lang-switch">
+                            <svg v-if="!isHome || (locales[0] == $i18n.locale ? key != 1 : key)" width="45" height="22" viewBox="0 0 11.90625 5.8208335"><g transform="translate(0,-291.17914)"><circle style="fill:#228ed5" cx="5.953125" cy="294.08957" r="0.66145831"/></g></svg>
+                            <nuxt-link :to="'/' + lang + (isHome ? '' : $nuxt.$route.path.replace('/' + $i18n.locale, ''))">{{ localeCaptions[lang] || lang }}</nuxt-link>
                         </li>
                     </ul>
                 </nav>
