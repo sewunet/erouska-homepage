@@ -1,5 +1,5 @@
-const locales = ['cs', 'en', 'vi'];
-const localeCaptions = {cs: 'Čeština', en: 'English', vi: 'Tiếng Việt'};
+const locales = ['cs', 'en', 'vi', 'ro'];
+const localeCaptions = {cs: 'Čeština', en: 'English', vi: 'Tiếng Việt', ro: 'Română', ru: 'Русский', uk: 'Українська', pt: 'Português', nl: 'Nederlands', sk: 'Slovenčina'};
 const pages = ['', 'audit-kod', 'caste-dotazy', 'gdpr', 'napsali-o-nas', 'navody', 'tym'];
 const routes = [];
 for (const locale of locales) {
