@@ -9,8 +9,7 @@
                         </nuxt-link>
                     </h1>
                 </div>
-                <nav class="header__nav-wrapper d-none d-md-block"
-                     role="navigation">
+                <nav class="header__nav-wrapper d-none d-md-block" role="navigation">
                     <ul class="header__nav">
                         <li v-if="!isHome">
                             <nuxt-link :to="homeUrlNoTrailingSlash">
